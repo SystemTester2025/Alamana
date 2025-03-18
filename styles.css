@@ -939,12 +939,24 @@ body {
     z-index: 1;
 }
 
+.company-card::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 25px;
+    right: 22px;
+    bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    z-index: 2;
+}
+
 .company-leaf-icon {
     position: absolute;
     top: 0;
-    left: 50px;
-    width: 80px;
-    height: 80px;
+    left: 120px;
+    width: 83px;
+    height: 113px;
     background-color: white;
     border-radius: 0 0 40px 40px;
     overflow: hidden;
