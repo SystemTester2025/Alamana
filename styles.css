@@ -43,21 +43,21 @@ body {
 /* Site Wrapper for adding space around the entire site */
 .site-wrapper {
     width: 95%;
-    margin: 4% auto;
+    margin: 3% auto;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 75px;
+    border-radius: 50px;
 }
 
 /* Hero Section */
 .hero-section {
-    height: 90vh;
+    height: 800px;
     position: relative;
     color: white;
     overflow: hidden;
     display: flex;
     align-items: center;
-    border-radius: 75px;
+    border-radius: 50px;
 }
 
 .hero-background {
@@ -86,7 +86,7 @@ body {
 .navbar {
     padding: 15px 0;
     position: absolute;
-    top: 20px;
+    top: 40px;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -160,6 +160,7 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
+    padding-top: 120px;
 }
 
 .main-heading, .sub-heading {
@@ -213,7 +214,7 @@ body {
 /* Product Counter */
 .product-counter {
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     left: 50px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 25px;
@@ -267,7 +268,7 @@ body {
 /* Scroll Down */
 .scroll-down {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -377,12 +378,16 @@ body {
     }
     
     .hero-section {
-        height: 85vh;
+        height: 700px;
         border-radius: 50px;
     }
     
     .hero-background, .overlay {
         border-radius: 50px;
+    }
+    
+    .hero-content {
+        padding-top: 100px;
     }
 }
 
@@ -393,7 +398,7 @@ body {
     
     .product-counter {
         left: 20px;
-        bottom: 80px;
+        bottom: 70px;
         padding: 10px 20px;
     }
     
@@ -411,7 +416,12 @@ body {
         border-radius: 40px;
     }
     
-    .hero-section, .hero-background, .overlay {
+    .hero-section {
+        height: 700px;
+        border-radius: 40px;
+    }
+    
+    .hero-background, .overlay {
         border-radius: 40px;
     }
     
@@ -426,6 +436,10 @@ body {
     .navbar-nav .nav-link {
         margin: 0 10px;
         font-size: 14px;
+    }
+    
+    .hero-content {
+        padding-top: 90px;
     }
 }
 
@@ -447,7 +461,7 @@ body {
     
     .product-counter {
         left: 10px;
-        bottom: 60px;
+        bottom: 70px;
         padding: 8px 15px;
     }
     
@@ -481,13 +495,26 @@ body {
         border-radius: 30px;
     }
     
-    .hero-section, .hero-background, .overlay {
+    .hero-section {
+        height: 700px;
+        border-radius: 30px;
+    }
+    
+    .hero-background, .overlay {
         border-radius: 30px;
     }
     
     .navbar-nav .nav-link {
         margin: 0 8px;
         font-size: 13px;
+    }
+    
+    .hero-content {
+        padding-top: 80px;
+    }
+    
+    .navbar {
+        top: 20px;
     }
 }
 
