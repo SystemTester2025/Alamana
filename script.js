@@ -14,6 +14,21 @@ $(document).ready(function() {
         }
     });
     
+    // Simple accordion arrow rotation fix
+    $('#managementAccordion').on('show.bs.collapse', function(e) {
+        $(e.target).prev('.accordion-header').attr('aria-expanded', true);
+    });
+
+    $('#managementAccordion').on('hide.bs.collapse', function(e) {
+        $(e.target).prev('.accordion-header').attr('aria-expanded', false);
+    });
+
+    // Initialize accordion headers on page load
+    $('.accordion-collapse').each(function() {
+        const isExpanded = $(this).hasClass('show');
+        $(this).prev('.accordion-header').attr('aria-expanded', isExpanded);
+    });
+    
     // Change navbar background on scroll
     $(window).scroll(function() {
         if ($(window).scrollTop() > 50) {

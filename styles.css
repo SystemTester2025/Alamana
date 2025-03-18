@@ -1213,7 +1213,7 @@ body {
 }
 
 .management-description {
-    color: #21602B;
+    color: #15371A;
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: right;
@@ -1403,5 +1403,212 @@ body {
     .link-arrow {
         width: 30px;
         height: 30px;
+    }
+}
+
+/* Management Accordion Styles */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+button.section-heading-container {
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #15371A;
+    box-shadow: none;
+}
+
+button.section-heading-container:hover {
+    background-color: #f5f5f5;
+}
+
+button.section-heading-container[aria-expanded="true"] {
+    background-color: #15371A;
+}
+
+button.section-heading-container[aria-expanded="true"] .section-heading {
+    color: #ffffff;
+}
+
+.section-heading {
+    color: #15371A;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.arrow-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #15371A;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+button.section-heading-container[aria-expanded="true"] .arrow-icon {
+    background-color: #ffffff;
+}
+
+button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
+    fill: #15371A;
+    transform: rotate(315deg);
+}
+
+.arrow-icon svg {
+    transition: transform 0.3s ease;
+    fill: #ffffff;
+}
+
+.accordion-header {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.accordion-body {
+    padding: 25px 20px;
+    background-color: #f9f9f9;
+    border-radius: 0 0 15px 15px;
+    margin-top: -5px;
+}
+
+.accordion-collapse {
+    transition: all 0.3s ease;
+}
+
+/* Values list in accordion */
+.accordion-body .values-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.accordion-body .value-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.accordion-body .value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-body .value-title {
+    color: #21602B;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.accordion-body .value-title::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #21602B;
+    border-radius: 50%;
+}
+
+.accordion-body .value-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive styles for accordion */
+@media (max-width: 992px) {
+    button.section-heading-container {
+        padding: 12px 20px;
+    }
+    
+    .section-heading {
+        font-size: 2rem;
+    }
+    
+    .arrow-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .accordion-body {
+        padding: 20px 15px;
+    }
+    
+    .accordion-body .value-item {
+        padding: 15px;
+    }
+    
+    .accordion-body .value-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    button.section-heading-container {
+        padding: 10px 15px;
+    }
+    
+    .section-heading {
+        font-size: 1.7rem;
+    }
+    
+    .arrow-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .accordion-body {
+        padding: 15px;
+    }
+    
+    .accordion-body .values-list {
+        flex-direction: column;
+    }
+    
+    .accordion-body .value-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-heading {
+        font-size: 1.5rem;
+    }
+    
+    .arrow-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .accordion-body .value-title {
+        font-size: 1.1rem;
     }
 }
