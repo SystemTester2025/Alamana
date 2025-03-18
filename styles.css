@@ -161,17 +161,19 @@ body {
     z-index: 2;
     text-align: center;
     padding-top: 0px;
+    margin-bottom: 200px;
 }
 
 .main-heading, .sub-heading {
-    font-weight: bold;
+    /* font-weight: bold; */
     line-height: 1.2;
     margin: 0;
     text-align: center;
 }
 
 .main-heading {
-    font-size: 4rem;
+    font-weight: 100px;
+    font-size: 5rem;
     color: #21602B;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -179,8 +181,10 @@ body {
 .sub-heading {
     font-size: 4rem;
     color: #8ab734;
+    padding-top: 35px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
 }
 
 .hero-description {
