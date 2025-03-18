@@ -1195,11 +1195,13 @@ body {
     margin-bottom: 30px;
 }
 
+/* Main section-heading definition - we'll use this as the single source of truth */
 .section-heading {
-    color: #21602B;
-    font-size: 2.8rem;
-    font-weight: bold;
+    color: #15371A;
+    font-size: 1.4rem;
+    font-weight: 400;
     margin: 0;
+    transition: font-size 0.3s ease, color 0.3s ease;
 }
 
 .arrow-icon {
@@ -1268,7 +1270,7 @@ body {
 /* Responsive styles for management section */
 @media (max-width: 1200px) {
     .section-heading {
-        font-size: 2.4rem;
+        font-size: 1.2rem;
     }
     
     .image-text {
@@ -1282,7 +1284,7 @@ body {
 
 @media (max-width: 992px) {
     .section-heading {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
     
     .management-image-card {
@@ -1310,7 +1312,7 @@ body {
 
 @media (max-width: 768px) {
     .section-heading {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
     
     .management-image-card {
@@ -1354,7 +1356,7 @@ body {
     }
     
     .section-heading {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
     
     .management-image-card {
@@ -1439,15 +1441,10 @@ button.section-heading-container[aria-expanded="true"] {
     background-color: #15371A;
 }
 
+/* Active state styling - overrides the base .section-heading */
 button.section-heading-container[aria-expanded="true"] .section-heading {
     color: #ffffff;
-}
-
-.section-heading {
-    color: #15371A;
     font-size: 2.2rem;
-    font-weight: bold;
-    margin: 0;
 }
 
 .arrow-icon {
@@ -1491,6 +1488,31 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 
 .accordion-collapse {
     transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for the active heading */
+@media (max-width: 1200px) {
+    button.section-heading-container[aria-expanded="true"] .section-heading {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    button.section-heading-container[aria-expanded="true"] .section-heading {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    button.section-heading-container[aria-expanded="true"] .section-heading {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    button.section-heading-container[aria-expanded="true"] .section-heading {
+        font-size: 1.5rem;
+    }
 }
 
 /* Values list in accordion */
@@ -1577,7 +1599,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     }
     
     .section-heading {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
     
     .arrow-icon {
