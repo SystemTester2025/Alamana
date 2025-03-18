@@ -1016,7 +1016,7 @@ body {
 }
 
 .benefits-title {
-    color: #15371A;
+    color: #21602B;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
@@ -1025,7 +1025,7 @@ body {
 }
 
 .benefits-description {
-    color: #15371A;
+    color: #21602B;
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: center;
@@ -1230,7 +1230,7 @@ body {
 }
 
 .image-text {
-    color: #15371A;
+    color: #21602B;
     font-size: 1rem;
     text-align: center;
     line-height: 1.2;
@@ -1318,7 +1318,7 @@ body {
 
 /* Main section-heading definition - we'll use this as the single source of truth */
 .section-heading {
-    color: #15371A;
+    color: #21602B;
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0;
@@ -1336,7 +1336,7 @@ body {
 }
 
 .management-description {
-    color: #15371A;
+    color: #21602B;
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: right;
@@ -1569,7 +1569,7 @@ button.section-heading-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #15371A;
+    border: 1px solid #21602B;
     box-shadow: none;
 }
 
@@ -1578,7 +1578,7 @@ button.section-heading-container:hover {
 }
 
 button.section-heading-container[aria-expanded="true"] {
-    background-color: #15371A;
+    background-color: #21602B;
     transition: all 0.2s ease;
 }
 
@@ -1592,7 +1592,7 @@ button.section-heading-container[aria-expanded="true"] .section-heading {
 .arrow-icon {
     width: 50px;
     height: 50px;
-    background-color: #15371A;
+    background-color: #21602B;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -1607,7 +1607,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon {
 }
 
 button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
-    fill: #15371A;
+    fill: #21602B;
     transform: rotate(315deg);
     transition: transform 0.3s ease, fill 0.2s ease;
 }
