@@ -82,6 +82,22 @@ body {
     border-radius: 75px;
 }
 
+/* Top Right Logo */
+.top-right-logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 999;
+    max-width: 107px;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    max-width: 107px;
+    max-height: 130px;
+}
+
 /* Navigation */
 .navbar {
     padding: 15px 0;
@@ -103,6 +119,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
 
 .navbar-nav {
@@ -165,7 +185,6 @@ body {
 }
 
 .main-heading, .sub-heading {
-    /* font-weight: bold; */
     line-height: 1.2;
     margin: 0;
     text-align: center;
@@ -319,7 +338,7 @@ body {
     padding-left: 100px;
     margin-right: auto;
     margin-left: auto;
-    max-width: 1328px; /* Set the maximum width as requested */
+    max-width: 1328px;
 }
 
 @media (min-width: 576px) {
@@ -356,21 +375,21 @@ body {
 
 @media (min-width: 1400px) {
     .container {
-        max-width: 1328px; /* Set the maximum width as requested */
+        max-width: 1328px;
         padding-right: 100px;
         padding-left: 100px;
     }
 }
 
 /* Enhanced responsive adjustments */
-@media (max-width: 992px) {
-    .navbar-container {
-        background-color: transparent;
-        border: 1px solid #21602B;
-        padding: 10px 15px;
-        width: 90%;
+@media (max-width: 1200px) {
+    .top-right-logo {
+        top: 35px;
+        right: 35px;
     }
-    
+}
+
+@media (max-width: 992px) {
     .main-heading, .sub-heading {
         font-size: 3rem;
     }
@@ -393,9 +412,28 @@ body {
     .hero-content {
         padding-top: 100px;
     }
+    
+    .top-right-logo {
+        top: 30px;
+        right: 30px;
+        max-width: 90px;
+    }
 }
 
+/* Update media query for size between 913px and 991px */
+@media (max-width: 991px) and (min-width: 861px) {
+}
+
+/* Fix Tablet / Medium Size Screens */
+@media (max-width: 860px) {
+}
+
+/* Mobile menu styles */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+    
     .main-heading, .sub-heading {
         font-size: 2.5rem;
     }
@@ -429,24 +467,21 @@ body {
         border-radius: 40px;
     }
     
-    .navbar-container {
-        width: 95%;
+    /* Move logo to top left on mobile */
+    .top-right-logo {
+        top: 20px;
+        left: 20px;
+        right: auto;
+        max-width: 80px;
     }
     
-    .navbar-toggler {
-        display: block;
-    }
-    
-    .navbar-nav .nav-link {
-        margin: 0 10px;
-        font-size: 14px;
-    }
-    
-    .hero-content {
-        padding-top: 90px;
+    .logo {
+        max-width: 80px;
+        max-height: 100px;
     }
 }
 
+/* Adjust for extra small screens */
 @media (max-width: 576px) {
     .container {
         padding-right: 20px;
@@ -457,10 +492,20 @@ body {
         font-size: 1.8rem;
     }
     
+    .navbar {
+        top: 15px;
+    }
+    
     .navbar-container {
-        border-radius: 20px;
-        padding: 8px 15px;
-        width: 90%;
+        border-radius: 0;
+        border-width: 0 0 1px 0;
+        border-color: #21602B;
+        padding: 6px 10px;
+    }
+    
+    .navbar-toggler {
+        right: 10px;
+        padding: 4px 8px;
     }
     
     .product-counter {
@@ -517,20 +562,100 @@ body {
         padding-top: 80px;
     }
     
-    .navbar {
-        top: 20px;
+    /* Smallest screens logo size */
+    .top-right-logo {
+        top: 15px;
+        left: 15px;
+        max-width: 70px;
+    }
+    
+    .logo {
+        max-width: 70px;
+        max-height: 85px;
     }
 }
 
-.navbar-collapse {
-    flex-grow: 0;
+/* Update media query for desktop screens */
+@media (min-width: 992px) {
+    .navbar-collapse.collapse {
+        display: flex !important;
+    }
+    
+    .navbar-toggler {
+        display: none !important;
+    }
+    
+    .navbar-container {
+        background-color: transparent;
+        border: 1px solid #21602B;
+        padding: 10px 25px;
+        width: 80%;
+        max-width: 700px;
+        justify-content: center;
+    }
+    
+    .navbar-nav {
+        flex-direction: row;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 16px;
+        margin: 0 15px;
+    }
 }
 
-/* Mobile menu styles */
-@media (max-width: 768px) {
+/* For screens between 768px and 991px - non-dropdown menu */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-collapse.collapse {
+        display: flex !important;
+    }
+    
+    .navbar-toggler {
+        display: none !important;
+    }
+    
     .navbar-container {
+        background-color: transparent;
+        border: 1px solid #21602B;
+        padding: 10px 15px;
+        width: 90%;
+        max-width: 600px;
+        justify-content: center;
+    }
+    
+    .navbar-nav {
+        flex-direction: row;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        margin: 0 8px;
+    }
+}
+
+/* Fix Tablet Screens - dropdown starts here */
+@media (max-width: 767px) {
+    .navbar-container {
+        width: 90%;
+        max-width: 500px;
+        padding: 8px 15px;
+        transition: all 0.3s ease;
+        position: relative;
         justify-content: flex-end;
-        padding-right: 60px;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 13px;
+        margin: 0 8px;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
     }
     
     .navbar-collapse {
@@ -547,6 +672,7 @@ body {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         width: 100%;
         max-width: 100%;
+        z-index: 1000;
     }
     
     .navbar-nav {
@@ -563,57 +689,22 @@ body {
         padding: 10px;
         display: block;
         margin: 0;
-        color: #21602B;
     }
     
     .navbar-container.mobile-expanded {
-        background-color: transparent;
+        background-color: white;
     }
-}
-
-/* Top Right Logo */
-.top-right-logo {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    z-index: 999;
-    max-width: 15%;
-}
-
-.logo {
-    width: 100%;
-    max-width: 107px;
-    height: auto;
-    max-height: 130px;
-}
-
-@media (max-width: 1200px) {
-    .top-right-logo {
-        top: 35px;
-        right: 35px;
+    
+    .hero-content {
+        padding-top: 90px;
     }
-}
-
-@media (max-width: 992px) {
-    .top-right-logo {
-        top: 30px;
-        right: 30px;
-        max-width: 12%;
+    
+    /* Force Bootstrap's collapse to work correctly */
+    .collapse:not(.show) {
+        display: none !important;
     }
-}
-
-@media (max-width: 768px) {
-    .top-right-logo {
-        top: 25px;
-        right: 25px;
-        max-width: 10%;
-    }
-}
-
-@media (max-width: 576px) {
-    .top-right-logo {
-        top: 20px;
-        right: 20px;
-        max-width: 15%;
+    
+    .collapse.show {
+        display: block !important;
     }
 }

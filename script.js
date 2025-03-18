@@ -28,27 +28,45 @@ $(document).ready(function() {
         $('.navbar').addClass('navbar-scrolled');
     }
     
-    // Mobile menu toggle
+    // Mobile menu toggle - only for tablet and mobile (below 768px)
     $('.navbar-toggler').on('click', function() {
-        $('.navbar-container').toggleClass('mobile-expanded');
+        $('.navbar-collapse').toggleClass('show');
         
-        if ($('.navbar-container').hasClass('mobile-expanded')) {
-            $('.navbar-collapse').css('display', 'block');
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-container').addClass('mobile-expanded');
         } else {
-            setTimeout(function() {
-                $('.navbar-collapse').css('display', '');
-            }, 300);
+            $('.navbar-container').removeClass('mobile-expanded');
         }
     });
     
     // Close mobile menu when clicking outside
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.navbar-container').length && 
-            $('.navbar-collapse').is(':visible') && 
+            $('.navbar-collapse').hasClass('show') && 
             !$(e.target).closest('.navbar-toggler').length) {
             $('.navbar-toggler').click();
         }
     });
+    
+    // Check for browser width changes to handle menu state
+    function handleResponsiveMenu() {
+        // Ensure menu is visible on desktop/larger screens
+        if ($(window).width() >= 768) {
+            // If screen is large enough to show normal menu, ensure collapse is visible
+            if (!$('.navbar-collapse').hasClass('show') && !$('.navbar-collapse').is(':visible')) {
+                $('.navbar-collapse').addClass('show');
+            }
+        } else {
+            // On mobile, if menu is open, keep it open; if closed, keep it closed
+            if (!$('.navbar-toggler').is(':visible')) {
+                $('.navbar-collapse').removeClass('show');
+                $('.navbar-container').removeClass('mobile-expanded');
+            }
+        }
+    }
+    
+    // Run on resize and on page load
+    $(window).on('resize', handleResponsiveMenu);
     
     // Animated counting for product counter
     const counterAnimation = () => {
@@ -100,7 +118,8 @@ $(document).ready(function() {
     
     // Add a small delay to ensure all elements are loaded
     setTimeout(function() {
-        // Trigger scroll to initialize elements
+        // Trigger scroll and resize to initialize elements
         $(window).trigger('scroll');
+        handleResponsiveMenu();
     }, 500);
 });
