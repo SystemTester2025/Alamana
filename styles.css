@@ -180,7 +180,7 @@ body {
 
 .sub-heading {
     font-size: 4rem;
-    color: #8ab734;
+    color: #8BB729;
     padding-top: 35px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -206,8 +206,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #8ab734;
-    border-color: #8ab734;
+    background-color: #8BB729;
+    border-color: #8BB729;
 }
 
 .btn-outline-light:hover {
@@ -236,7 +236,7 @@ body {
 .counter-text {
     font-size: 2rem;
     font-weight: bold;
-    color: #8ab734;
+    color: #8BB729;
 }
 
 .counter-subtext {
@@ -302,7 +302,7 @@ body {
 }
 
 .scroll-circle:hover {
-    background-color: #8ab734;
+    background-color: #8BB729;
     transform: translateY(-5px);
 }
 
