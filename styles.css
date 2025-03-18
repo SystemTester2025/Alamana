@@ -1905,9 +1905,9 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 .product-item {
     position: relative;
     aspect-ratio: 1/1;
-    border-radius: 15px;
+    border-radius: 40px;
     overflow: hidden;
-    background-color: #000;
+    background-color: transparent;
 }
 
 .product-image {
@@ -1942,18 +1942,18 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 .product-label::after {
     content: "";
     position: absolute;
-    /* left: -3px; */
-    /* width: 58px; */
-    /* height: 55px; */
+    background-image: url(public/css/shapes/rectangle-white.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 58px;
+    height: 45px;
     background-color: transparent;
     /* border: 15px solid #ffffff; */
     /* border-radius: 10px; */
-    border-left: 40px solid transparent;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid black;
     /* border-radius: 19px; */
-    bottom: 10px;
-    right: 143px;
+    bottom: 0px;
+    right: 148px;
     z-index: 2;
 }
 
@@ -1977,13 +1977,23 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 }
 
 .contact-section {
-    background-color: #21602B;
     position: relative;
     border-radius: 25px;
     padding: 40px 0;
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 50px;
     color: white;
     overflow: hidden;
+}
+
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .contact-section::before {
@@ -1993,10 +2003,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('public/images/pattern.png');
-    background-repeat: repeat;
-    background-size: 300px;
-    opacity: 0.07;
+    background-color: rgba(33, 96, 43, 0.7);
     z-index: 1;
 }
 
@@ -2004,6 +2011,8 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     position: relative;
     z-index: 2;
     padding: 0 50px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .contact-header {
@@ -2013,8 +2022,9 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     transform: translateX(-50%);
     background-color: white;
     border-radius: 50px;
-    padding: 20px 60px;
+    padding: 20px 120px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 3;
 }
 
 .contact-logo {
@@ -2024,51 +2034,70 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 }
 
 .contact-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 130px;
 }
 
 .contact-map {
-    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 300px;
+    max-height: 300px;
+    padding: 15px;
+}
+
+.map-container {
     border-radius: 15px;
     overflow: hidden;
     height: 250px;
-    max-width: 500px;
+    padding: 15px;
 }
 
 .contact-map iframe {
     width: 100%;
     height: 100%;
     border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info {
-    flex: 1;
     text-align: right;
-    padding-right: 50px;
+    /* padding: 15px 30px; */
 }
 
 .contact-title {
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 25px;
     color: white;
+    position: relative;
+}
+
+.contact-title::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: #8BB729;
 }
 
 .contact-address {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-size: .9rem;
+    font-weight: bold;
     line-height: 1.5;
 }
 
 .contact-phones {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 30px;
+    font-size: .9rem;
+    font-weight: bold;
     margin-top: 20px;
 }
 
@@ -2079,31 +2108,46 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 }
 
 .phone-number {
-    font-size: 1.2rem;
-    font-weight: bold;
     direction: ltr;
     text-align: right;
+    transition: all 0.3s ease;
 }
 
+.phone-number:hover {
+    color: #8BB729;
+    transform: translateX(-5px);
+}
+
+/* Responsive styles for Contact Section */
 @media (max-width: 992px) {
     .contact-content {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 30px;
+        margin-top: 60px;
     }
     
     .contact-info {
-        padding-right: 0;
+        order: 1;
+        padding: 15px;
         text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .contact-map {
+        order: 2;
+        height: 250px;
+        padding: 10px;
     }
     
     .contact-phones {
         justify-content: center;
     }
     
-    .contact-map {
-        width: 100%;
-        max-width: 100%;
+    .contact-title {
+        font-size: 1.6rem;
+    }
+    
+    .contact-title::after {
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 
@@ -2131,12 +2175,17 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     .phone-number {
         font-size: 1rem;
     }
+    
+    .contact-content {
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 576px) {
     .contact-header {
         width: 80%;
         padding: 10px 20px;
+        top: -35px;
     }
     
     .contact-logo {
@@ -2145,6 +2194,28 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     
     .contact-phones {
         flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .contact-title {
+        font-size: 1.4rem;
+    }
+    
+    .contact-section {
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+    
+    .contact-content {
+        margin-top: 40px;
+    }
+    
+    .contact-map {
+        height: 200px;
+    }
+    
+    .phone-column {
         gap: 10px;
     }
 }
