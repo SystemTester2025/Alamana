@@ -946,7 +946,7 @@ body {
     left: 25px;
     right: 22px;
     bottom: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 20px;
     z-index: 2;
 }
@@ -959,22 +959,34 @@ body {
     height: 113px;
     background-color: white;
     border-radius: 0 0 40px 40px;
-    overflow: hidden;
+    overflow: visible;
     z-index: 2;
 }
 
 .company-leaf-icon:before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
-    width: 40px;
-    height: 50px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2321602B"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" /></svg>');
+    width: 62px;
+    height: 80px;
+    background-image: url(public/images/leaf.svg);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     transform: translate(-50%, -50%);
 }
+/* .company-leaf-icon::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 83px;
+    width: 51px;
+    height: 50px;
+    background-color: #ffffff;
+    z-index: 3;
+    border-radius: 1% 75% 0 0;
+} */
 
 .company-title {
     font-size: 2.5rem;
@@ -1004,16 +1016,17 @@ body {
 }
 
 .benefits-title {
-    color: #333;
+    color: #15371A;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
+    line-height: 1.8;
     text-align: center;
 }
 
 .benefits-description {
-    color: #666;
-    font-size: 1.1rem;
+    color: #15371A;
+    font-size: 1.2rem;
     line-height: 1.8;
     text-align: center;
 }
