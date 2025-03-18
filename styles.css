@@ -1162,16 +1162,6 @@ body {
         overflow: visible;
     }
     
-    /* Remove scrollbar styling completely */
-    .col-lg-8.order-lg-1 .accordion::-webkit-scrollbar {
-        width: 0;
-        display: none;
-    }
-    
-    .col-lg-8.order-lg-1 .accordion::-webkit-scrollbar-thumb {
-        background-color: transparent;
-    }
-    
     /* Ensure accordion content can overflow as needed */
     .accordion-collapse {
         overflow: visible;
@@ -1793,7 +1783,9 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     .accordion-body .value-title {
         font-size: 1.1rem;
     }
-}/* Responsive adjustments for the row height */
+}
+
+/* Responsive adjustments for the row height and image positioning */
 @media (max-width: 991px) {
     .management-section .row {
         height: auto; /* Allow the row to expand on smaller screens */
@@ -1809,6 +1801,81 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
         position: relative;
         height: auto; 
         min-height: 400px;
+        margin-bottom: 30px;
+    }
+    
+    /* Adjust image overlay positioning for better mobile visibility */
+    .image-overlay {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    /* Make image text more visible on mobile */
+    .image-text {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        height: auto;
+        min-height: 180px;
+        z-index: 5;
+    }
+}
+
+@media (max-width: 768px) {
+    .management-section {
+        padding: 50px 0;
+    }
+    
+    .management-image-card {
+        min-height: 350px;
+    }
+    
+    .image-border::before {
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+    }
+    
+    .image-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 10px 15px;
+        width: 160px;
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .management-section {
+        padding: 40px 0;
+    }
+    
+    .management-image-card {
+        min-height: 280px;
+    }
+    
+    .image-border {
+        width: 95%;
+        height: 95%;
+    }
+    
+    .image-border::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+    
+    .image-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        padding: 8px 12px;
+        width: 140px;
+        min-height: 140px;
+        left: 10px;
     }
 }
 
