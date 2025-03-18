@@ -88,14 +88,14 @@ body {
     top: 40px;
     right: 40px;
     z-index: 999;
-    max-width: 107px;
+    max-width: 120px;
 }
 
 .logo {
     width: 100%;
     height: auto;
-    max-width: 107px;
-    max-height: 130px;
+    max-width: 120px;
+    max-height: 160px;
 }
 
 /* Navigation */
