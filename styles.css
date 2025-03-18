@@ -570,3 +570,50 @@ body {
         background-color: transparent;
     }
 }
+
+/* Top Right Logo */
+.top-right-logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 999;
+    max-width: 15%;
+}
+
+.logo {
+    width: 100%;
+    max-width: 107px;
+    height: auto;
+    max-height: 130px;
+}
+
+@media (max-width: 1200px) {
+    .top-right-logo {
+        top: 35px;
+        right: 35px;
+    }
+}
+
+@media (max-width: 992px) {
+    .top-right-logo {
+        top: 30px;
+        right: 30px;
+        max-width: 12%;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-right-logo {
+        top: 25px;
+        right: 25px;
+        max-width: 10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-right-logo {
+        top: 20px;
+        right: 20px;
+        max-width: 15%;
+    }
+}
