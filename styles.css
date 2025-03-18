@@ -1106,3 +1106,302 @@ body {
     background-color: #ffffff;
     width: 100%;
 }
+
+/* Management Section */
+.management-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+/* Management image card with u-shaped frame */
+.management-image-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.image-border {
+    position: relative;
+    width: 85%;
+    height: 85%;
+    margin: 0 auto;
+}
+
+/* U-shaped SVG border will be added with pseudo-element */
+.image-border::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-color: transparent;
+    /* SVG U-shape with wavy lines */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M 30,20 C 60,40 80,100 80,200 C 80,290 130,330 220,330 C 250,330 270,330 280,330 C 130,330 80,290 80,200 C 80,100 60,40 30,20 Z' fill='%2321602B' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.management-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    z-index: 3;
+}
+
+.image-text {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+/* Management content */
+.management-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    color: #21602B;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.arrow-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #21602B;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.management-description {
+    color: #21602B;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+/* Management links */
+.management-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.management-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.management-link:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.link-text {
+    color: #21602B;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.link-arrow {
+    width: 40px;
+    height: 40px;
+    background-color: #21602B;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-arrow svg {
+    fill: white;
+}
+
+/* Responsive styles for management section */
+@media (max-width: 1200px) {
+    .section-heading {
+        font-size: 2.4rem;
+    }
+    
+    .image-text {
+        font-size: 1.3rem;
+    }
+    
+    .management-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .section-heading {
+        font-size: 2.2rem;
+    }
+    
+    .management-image-card {
+        min-height: 400px;
+        margin-bottom: 30px;
+    }
+    
+    .image-border {
+        width: 90%;
+        height: 90%;
+    }
+    
+    .image-text {
+        font-size: 1.2rem;
+    }
+    
+    .management-description {
+        font-size: 1rem;
+    }
+    
+    .link-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 2rem;
+    }
+    
+    .management-image-card {
+        min-height: 350px;
+    }
+    
+    .image-border::before {
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+    }
+    
+    .image-text {
+        font-size: 1.1rem;
+    }
+    
+    .arrow-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .management-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .link-text {
+        font-size: 1.1rem;
+    }
+    
+    .link-arrow {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .management-section {
+        padding: 50px 0;
+    }
+    
+    .section-heading {
+        font-size: 1.8rem;
+    }
+    
+    .management-image-card {
+        min-height: 300px;
+    }
+    
+    .image-border {
+        width: 95%;
+        height: 95%;
+    }
+    
+    .image-border::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+    
+    .image-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .arrow-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .management-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .management-links {
+        gap: 15px;
+    }
+    
+    .management-link {
+        padding: 12px 20px;
+    }
+    
+    .link-text {
+        font-size: 1rem;
+    }
+    
+    .link-arrow {
+        width: 30px;
+        height: 30px;
+    }
+}
