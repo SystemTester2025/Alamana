@@ -1114,12 +1114,19 @@ body {
     width: 100%;
 }
 
+/* Make the row height static */
+.management-section .row {
+    display: flex;
+    height: 600px; /* Fixed height for the entire row */
+    overflow: visible; /* Allow content to overflow if needed */
+}
+
 /* Management image card with u-shaped frame */
 .management-image-card {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 580px;
+    min-height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1138,25 +1145,53 @@ body {
         top: 0;
         left: 0; 
         right: 0;
-        height: 480px; /* Fixed height for the card */
+        /* height: 530px; Fixed height for the card */
     }
     
     /* Make sure accordion container can expand without affecting the image side */
     .col-lg-8.order-lg-1 {
         min-height: 600px; /* Match the height of the image column */
+        height: 600px; /* Fixed height to match the row */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Allow accordion to display properly without hidden overflow */
+    .col-lg-8.order-lg-1 .accordion {
+        max-height: none;
+        overflow: visible;
+    }
+    
+    /* Remove scrollbar styling completely */
+    .col-lg-8.order-lg-1 .accordion::-webkit-scrollbar {
+        width: 0;
+        display: none;
+    }
+    
+    .col-lg-8.order-lg-1 .accordion::-webkit-scrollbar-thumb {
+        background-color: transparent;
     }
     
     /* Ensure accordion content can overflow as needed */
     .accordion-collapse {
         overflow: visible;
     }
+    
+    /* Make accordion expand to show all content */
+    .accordion-collapse.show {
+        max-height: 2000px; /* Larger value to ensure all content shows */
+        height: auto !important;
+        overflow: visible;
+    }
 }
 
+/* Ensure proper positioning for the image border and text */
 .image-border {
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    overflow: visible;
 }
 
 /* U-shaped SVG border will be added with pseudo-element */
@@ -1175,35 +1210,105 @@ body {
     z-index: 1;
 }
 
+/* Add a box shadow to the image for better visibility */
 .management-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10%;
     position: relative;
     z-index: 2;
+    filter: brightness(01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Improved image overlay positioning for RTL layout */
 .image-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
+    overflow: hidden;
+    top: 4%;
+    left: 4%;
+    width: 90%;
+    height: 90%;
+    background-color: transparent;
+    display: block;
+    border-radius: 7%;
     z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    padding: 15px;
 }
 
 .image-text {
-    color: white;
-    font-size: 1.5rem;
+    color: #15371A;
+    font-size: 1rem;
     text-align: center;
-    line-height: 1.8;
-    font-weight: 500;
+    line-height: 1.2;
+    font-weight: bold;
+    background-color: rgba(241, 241, 241, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    padding: 15px 20px;
+    border-radius: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    position: absolute;
+    left: 18px;
+    width: 180px;
+    height: 230px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Media queries for image text responsiveness */
+@media (max-width: 1200px) {
+    .image-text {
+        font-size: 1.3rem;
+        padding: 12px 16px;
+        max-width: 90%;
+    }
+    
+    .image-overlay {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    .image-text {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+        max-width: 100%;
+    }
+    
+    .image-overlay {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 8px 12px;
+    }
+    
+    .image-overlay {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 7px 10px;
+    }
+    
+    .image-overlay {
+        padding: 7px;
+    }
 }
 
 /* Management content */
@@ -1445,13 +1550,32 @@ body {
     background-color: transparent;
 }
 
+.accordion-collapse {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: auto !important;
+    max-height: 1000px; /* Large enough to contain any content, but still allows for animation */
+    display: block;
+}
+
+.accordion-collapse.collapse:not(.show) {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure expanded accordion content is fully visible */
+.management-section .row {
+    overflow-y: visible;
+}
+
 button.section-heading-container {
     width: 100%;
     padding: 15px 25px;
     background-color: #ffffff;
     border-radius: 15px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1465,12 +1589,14 @@ button.section-heading-container:hover {
 
 button.section-heading-container[aria-expanded="true"] {
     background-color: #15371A;
+    transition: all 0.2s ease;
 }
 
 /* Active state styling - overrides the base .section-heading */
 button.section-heading-container[aria-expanded="true"] .section-heading {
     color: #ffffff;
     font-size: 2.2rem;
+    transition: all 0.2s ease;
 }
 
 .arrow-icon {
@@ -1481,21 +1607,23 @@ button.section-heading-container[aria-expanded="true"] .section-heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     flex-shrink: 0;
 }
 
 button.section-heading-container[aria-expanded="true"] .arrow-icon {
     background-color: #ffffff;
+    transition: background-color 0.2s ease;
 }
 
 button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     fill: #15371A;
     transform: rotate(315deg);
+    transition: transform 0.3s ease, fill 0.2s ease;
 }
 
 .arrow-icon svg {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, fill 0.2s ease;
     fill: #ffffff;
 }
 
@@ -1510,10 +1638,16 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     background-color: #f9f9f9;
     border-radius: 0 0 15px 15px;
     margin-top: -5px;
+    /* Remove opacity and animation that's causing conflicts */
+    opacity: 1;
+    transition: all 0.2s ease;
 }
 
-.accordion-collapse {
-    transition: all 0.3s ease;
+/* Make sure accordion content stays visible */
+.accordion-collapse.show .accordion-body {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 /* Responsive adjustments for the active heading */
@@ -1659,4 +1793,22 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     .accordion-body .value-title {
         font-size: 1.1rem;
     }
+}/* Responsive adjustments for the row height */
+@media (max-width: 991px) {
+    .management-section .row {
+        height: auto; /* Allow the row to expand on smaller screens */
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+    
+    /* Adjust the image card height for smaller screens */
+    .col-lg-4.order-lg-2 {
+        height: auto;
+    }
+    
+    .management-image-card {
+        position: relative;
+        height: auto; 
+        min-height: 400px;
+    }
 }
+
