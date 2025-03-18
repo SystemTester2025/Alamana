@@ -14,76 +14,87 @@
     <!-- Remove duplicate Bootstrap and fix Font Awesome path -->
 </head>
 <body>
-    <div class="hero-section">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="logo.svg" alt="الأمانة" class="logo">
+    <div class="site-wrapper">
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <img src="public/images/background.jpg" alt="Background" class="hero-background">
+            
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <div class="navbar-container">
+                        <a class="navbar-brand" href="#">
+                            <img src="logo.svg" alt="الأمانة" class="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">الرئيسية</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">الشركة</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">الإدارة</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">المنتجات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">اتصل بنا</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Content -->
+            <div class="container hero-content">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="main-heading">نحن جسر بين الطبيعة</h1>
+                        <h1 class="sub-heading">والأسواق العالمية</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Counter -->
+            <div class="product-counter">
+                <div class="counter-text">+10</div>
+                <div class="counter-subtext">منتجات</div>
+                <div class="product-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-white"></span>
+                    <span class="dot dot-brown"></span>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="scroll-down">
+                <a href="#content">
+                    <div class="scroll-circle">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <span class="scroll-text">اكتشف المزيد</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">الشركة</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">الإدارة</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">المنتجات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">اتصل بنا</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Hero Content -->
-        <div class="container hero-content">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="main-heading">نحن جسر بين الطبيعة</h1>
-                    <h1 class="sub-heading">والأسواق العالمية</h1>
-                </div>
             </div>
         </div>
 
-        <!-- Product Counter -->
-        <div class="product-counter">
-            <div class="counter-text">+10</div>
-            <div class="counter-subtext">منتجات</div>
-            <div class="product-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-white"></span>
-                <span class="dot dot-brown"></span>
-            </div>
-        </div>
-
-        <!-- Scroll Down Indicator -->
-        <div class="scroll-down">
-            <a href="#content">
-                <div class="scroll-circle">
-                    <i class="fas fa-arrow-down"></i>
+        <!-- Content Section (placeholder) -->
+        <section id="content" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Additional content would go here -->
+                    </div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </section>
     </div>
-
-    <!-- Content Section (placeholder) -->
-    <section id="content" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Additional content would go here -->
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- jQuery and Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
