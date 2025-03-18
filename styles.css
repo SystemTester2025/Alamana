@@ -1,0 +1,260 @@
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Almarai';
+    src: url('public/fonts/Almarai-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('public/fonts/Almarai-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('public/fonts/Almarai-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('public/fonts/Almarai-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Main Styles */
+body {
+    font-family: 'Almarai', Arial, sans-serif;
+    color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('public/images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+/* Navigation */
+.navbar {
+    padding: 20px 0;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    margin: 0 15px;
+    position: relative;
+}
+
+.logo {
+    height: 60px;
+}
+
+/* Hero Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.main-heading, .sub-heading {
+    font-weight: bold;
+    color: #1e6e3a;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.main-heading {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+}
+
+.sub-heading {
+    font-size: 3.5rem;
+    color: #8ab734;
+}
+
+/* Product Counter */
+.product-counter {
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+.counter-text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.counter-subtext {
+    font-size: 1.2rem;
+}
+
+.product-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.dot-red {
+    background-color: #d9534f;
+}
+
+.dot-white {
+    background-color: #ffffff;
+}
+
+.dot-brown {
+    background-color: #8a6d3b;
+}
+
+/* Scroll Down */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.scroll-circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1e6e3a;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.scroll-circle:hover {
+    background-color: #1e6e3a;
+    color: white;
+}
+
+/* Responsive Adjustments */
+/* Add these responsive container styles */
+.container {
+    /* width: 100%; */
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* @media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+} */
+
+/* Enhance existing responsive adjustments */
+@media (max-width: 768px) {
+    .main-heading, .sub-heading {
+        font-size: 2rem;
+    }
+    
+    .product-counter {
+        left: 20px;
+        bottom: 80px;
+        padding: 10px 20px;
+    }
+    
+    .counter-text {
+        font-size: 1.5rem;
+    }
+    
+    .counter-subtext {
+        font-size: 1rem;
+    }
+    
+    .navbar-brand img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-heading, .sub-heading {
+        font-size: 1.5rem;
+    }
+    
+    .product-counter {
+        left: 10px;
+        bottom: 60px;
+        padding: 8px 15px;
+    }
+    
+    .counter-text {
+        font-size: 1.2rem;
+    }
+    
+    .counter-subtext {
+        font-size: 0.8rem;
+    }
+    
+    .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 3px;
+    }
+    
+    .scroll-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}

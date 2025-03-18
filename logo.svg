@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <!-- Leaf shape -->
+  <path d="M150,20 C180,30 190,60 170,70 C150,80 120,70 110,50 C100,30 120,10 150,20 Z" fill="#1e6e3a"/>
+  
+  <!-- Stem -->
+  <path d="M110,50 C105,60 100,70 95,80" stroke="#1e6e3a" stroke-width="3" fill="none"/>
+  
+  <!-- Small leaf -->
+  <path d="M95,60 C85,55 80,65 90,70 C100,75 105,65 95,60 Z" fill="#8ab734"/>
+  
+  <!-- Text -->
+  <text x="20" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e6e3a">الأمانة</text>
+  <text x="20" y="70" font-family="Arial, sans-serif" font-size="12" fill="#8ab734">للاستيراد والتصدير</text>
+</svg>
