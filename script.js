@@ -31,6 +31,23 @@ $(document).ready(function() {
     // Mobile menu toggle
     $('.navbar-toggler').on('click', function() {
         $('.navbar-container').toggleClass('mobile-expanded');
+        
+        if ($('.navbar-container').hasClass('mobile-expanded')) {
+            $('.navbar-collapse').css('display', 'block');
+        } else {
+            setTimeout(function() {
+                $('.navbar-collapse').css('display', '');
+            }, 300);
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.navbar-container').length && 
+            $('.navbar-collapse').is(':visible') && 
+            !$(e.target).closest('.navbar-toggler').length) {
+            $('.navbar-toggler').click();
+        }
     });
     
     // Animated counting for product counter
@@ -70,11 +87,9 @@ $(document).ready(function() {
     // Animate the scroll-down button
     function pulseAnimation() {
         $('.scroll-circle').animate({
-            transform: 'translateY(10px)',
             opacity: 0.7
         }, 1000, function() {
             $('.scroll-circle').animate({
-                transform: 'translateY(0)',
                 opacity: 1
             }, 1000, pulseAnimation);
         });

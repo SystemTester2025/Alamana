@@ -43,10 +43,10 @@ body {
 /* Site Wrapper for adding space around the entire site */
 .site-wrapper {
     width: 95%;
-    margin: 20px auto;
+    margin: 4% auto;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 75px;
 }
 
 /* Hero Section */
@@ -57,7 +57,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 75px;
 }
 
 .hero-background {
@@ -68,7 +68,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -2;
-    border-radius: 10px;
+    border-radius: 75px;
 }
 
 .overlay {
@@ -79,7 +79,7 @@ body {
     height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
     z-index: -1;
-    border-radius: 10px;
+    border-radius: 75px;
 }
 
 /* Navigation */
@@ -93,26 +93,28 @@ body {
 }
 
 .navbar-container {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: transparent;
     border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #21602B;
     padding: 10px 25px;
-    width: 100%;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
 }
 
 .navbar-nav {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .navbar-nav .nav-link {
-    color: white;
-    font-size: 18px;
-    margin: 0 12px;
+    color: #21602B;
+    font-size: 16px;
+    margin: 0 15px;
     position: relative;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -124,7 +126,7 @@ body {
     position: absolute;
     width: 0;
     height: 2px;
-    background: #8ab734;
+    background: #21602B;
     bottom: 0;
     left: 0;
     transition: width 0.3s ease;
@@ -137,11 +139,20 @@ body {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: #8ab734;
+    color: #21602B;
+    font-weight: bold;
 }
 
-.logo {
-    height: 50px;
+.navbar-toggler {
+    position: absolute;
+    right: 20px;
+    display: none;
+    border: 1px solid #21602B;
+    color: #21602B;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33, 96, 43, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Hero Content */
@@ -160,15 +171,15 @@ body {
 
 .main-heading {
     font-size: 4rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #21602B;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sub-heading {
     font-size: 4rem;
     color: #8ab734;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
@@ -274,7 +285,7 @@ body {
 .scroll-circle {
     width: 50px;
     height: 50px;
-    background-color: rgba(30, 110, 58, 0.8);
+    background-color: rgba(33, 96, 43, 0.8);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -349,8 +360,10 @@ body {
 /* Enhanced responsive adjustments */
 @media (max-width: 992px) {
     .navbar-container {
-        background-color: rgba(30, 110, 58, 0.9);
+        background-color: transparent;
+        border: 1px solid #21602B;
         padding: 10px 15px;
+        width: 90%;
     }
     
     .main-heading, .sub-heading {
@@ -359,11 +372,17 @@ body {
     
     .site-wrapper {
         width: 98%;
-        margin: 10px auto;
+        margin: 3% auto;
+        border-radius: 50px;
     }
     
     .hero-section {
         height: 85vh;
+        border-radius: 50px;
+    }
+    
+    .hero-background, .overlay {
+        border-radius: 50px;
     }
 }
 
@@ -386,13 +405,27 @@ body {
         font-size: 1rem;
     }
     
-    .navbar-brand img {
-        height: 40px;
-    }
-    
     .site-wrapper {
         width: 97%;
-        margin: 8px auto;
+        margin: 2% auto;
+        border-radius: 40px;
+    }
+    
+    .hero-section, .hero-background, .overlay {
+        border-radius: 40px;
+    }
+    
+    .navbar-container {
+        width: 95%;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 10px;
+        font-size: 14px;
     }
 }
 
@@ -409,6 +442,7 @@ body {
     .navbar-container {
         border-radius: 20px;
         padding: 8px 15px;
+        width: 90%;
     }
     
     .product-counter {
@@ -442,11 +476,66 @@ body {
     }
     
     .site-wrapper {
-        width: 98%;
-        margin: 5px auto;
+        width: 96%;
+        margin: 2% auto;
+        border-radius: 30px;
     }
     
-    .hero-section {
-        height: 80vh;
+    .hero-section, .hero-background, .overlay {
+        border-radius: 30px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .navbar-container {
+        justify-content: flex-end;
+        padding-right: 60px;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: white;
+        border-radius: 0 0 20px 20px;
+        border: 1px solid #21602B;
+        padding: 15px;
+        display: none;
+        margin-top: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+    }
+    
+    .navbar-nav .nav-item {
+        text-align: center;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 10px;
+        display: block;
+        margin: 0;
+        color: #21602B;
+    }
+    
+    .navbar-container.mobile-expanded {
+        background-color: transparent;
     }
 }
