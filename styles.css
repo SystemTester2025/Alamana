@@ -2397,6 +2397,13 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     margin: 0 auto;
 }
 
+.products-container .col-lg-4,
+.products-container .col-md-6,
+.products-container .col-12 {
+    display: flex;
+    justify-content: center;
+}
+
 .product-item {
     position: relative;
     aspect-ratio: 1/1;
@@ -2405,6 +2412,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     background-color: transparent;
     max-height: 430px;
     max-width: 430px;
+    width: 100%;
     margin: 20px 0;
     transform: translateY(0);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -2464,18 +2472,18 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 .product-label {
     position: absolute;
     bottom: 0;
-    width: 210px;
     right: 0;
+    width: 50%;
     text-align: center;
     align-content: center;
     align-items: center;
-    height: 73px;
+    height: 18%;
     background-color: #fff;
     color: #21602B;
     font-weight: bold;
     padding: 5px 12px;
     border-radius: 25px 0 0 0;
-        font-size: 1rem;
+    font-size: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 2;
     display: flex;
@@ -2510,13 +2518,14 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 58px;
-    height: 45px;
+    width: 39%;
+    height: 62%;
     background-color: transparent;
     bottom: -4px;
-    right: 208px;
+    right: 99%;
     z-index: 2;
 }
+
 .product-label::before {
     content: "";
     position: absolute;
@@ -2524,10 +2533,10 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 58px;
-    height: 45px;
+    width: 27%;
+    height: 62%;
     background-color: transparent;
-    bottom: 72px;
+    bottom: 99%;
     right: 0px;
     z-index: 2;
 }
@@ -2561,15 +2570,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     }
     
     .product-label {
-        width: 120px;
-        height: 60px;
         font-size: 0.9rem;
-    }
-    
-    .product-label::after {
-        width: 45px;
-        height: 35px;
-        right: 120px;
     }
 }
 
@@ -2585,16 +2586,8 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     }
     
     .product-label {
-        width: 100px;
-        height: 50px;
+        border-radius: 15px 0 0 0;
         font-size: 0.8rem;
-        border-radius: 10px 0 0 0;
-    }
-    
-    .product-label::after {
-        width: 40px;
-        height: 30px;
-        right: 100px;
     }
 }
 
