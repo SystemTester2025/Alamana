@@ -1292,7 +1292,7 @@ body {
     /* Smallest screens logo size */
     .top-right-logo {
         top: 20px;
-        left: 20px;
+        left: -82px;
         max-width: 70px;
     }
     
@@ -1313,6 +1313,17 @@ body {
         width: 160px;
         height: 120px;
         border-radius: 0 0 80px 0;
+    }
+    .logo-curved-bg::after {
+        rotate: 180deg;
+        top: -80px;
+        right: -65px;
+    }
+    .logo-curved-bg::before {
+        rotate: 180deg;
+        top: 50px;
+        left: -94px;
+        z-index: 10;
     }
 }
 
@@ -1538,11 +1549,29 @@ body {
     justify-content: center;
     align-items: center;
 }
+.company-leaf-icon::before{
+    content: "";
+    position: absolute;
+    top: -56px;
+    left: -28px;
+    width: 100%;
+    rotate: 150%;
+    width: 170%;
+    height: 150%;
+
+    background-image: url("public/images/static/shapes/company-static.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* opacity: 0.5; */
+}
+ 
 
 .leaf-icon {
     width: 62px;
     height: 80px;
     object-fit: contain;
+    z-index: 4;
 }
 
 .company-title {

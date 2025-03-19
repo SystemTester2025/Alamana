@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="262.642" height="295.201" viewBox="0 0 262.642 295.201">
+  <g id="Group_56" data-name="Group 56" transform="translate(-0.001)" style="mix-blend-mode: darken;isolation: isolate">
+    <g id="Rectangle_57" data-name="Rectangle 57" transform="translate(72.586)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="116.435" height="295.201" rx="56" stroke="none"/>
+      <rect x="0.5" y="0.5" width="115.435" height="294.201" rx="55.5" fill="none"/>
+    </g>
+    <g id="Subtraction_15" data-name="Subtraction 15" transform="translate(262.643 176.238) rotate(180)">
+      <path id="Path_56" data-name="Path 56" d="M60.361,64.883H0A73.673,73.673,0,0,0,39.464,42.421,82.931,82.931,0,0,0,60.361,0Z" transform="translate(14.018 15.074)" fill="#fff"/>
+      <path id="Path_57" data-name="Path 57" d="M73.732,79.262V21.28A83.264,83.264,0,0,1,53.939,57.986,74.937,74.937,0,0,1,19.79,79.262H73.732m1.294,1.392H0c20.006,0,38.837-8.4,53.025-23.65a83.243,83.243,0,0,0,22-57Z" fill="#fff"/>
+    </g>
+    <g id="Subtraction_16" data-name="Subtraction 16" transform="translate(0.001 95.585)">
+      <path id="Path_58" data-name="Path 58" d="M70.779,65.49C65.053,32.7,40.879,6.672,10.346.5L70.779.5Z" transform="translate(3.038 0.195)" fill="#fff"/>
+      <path id="Path_59" data-name="Path 59" d="M73.171,59.5V1.391l-54.04,0c26.252,7.577,47,29.91,54.04,58.108m1.294,21.153h0C74.464,36.511,41.061.331,0,0L74.464,0Z" transform="translate(-0.001 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
