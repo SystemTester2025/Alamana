@@ -1971,7 +1971,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     height: 73px;
     background-color: #fff;
     color: #21602B;
-    font-weight: 500;
+    font-weight: bold;
     padding: 5px 12px;
     border-radius: 25px 0 0 0;
     font-size: 1rem;
