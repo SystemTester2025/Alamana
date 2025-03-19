@@ -248,12 +248,14 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 260px;
-    height: 250px;
+    width: 249px;
+    height: 226px;
     background-color: white;
     border-radius: 0 0 0 100px;
     z-index: 10;
     transform: none;
+    align-content: center;
+    /* align-items: flex-start;
 }
 
 /* Top Right Logo */
@@ -280,6 +282,160 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Fixed navbar styles */
+.navbar.fixed-navbar {
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 0;
+    animation: slideDown 0.5s forwards;
+    width: 100%;
+    border-radius: 0;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar.fixed-navbar .navbar-container {
+    background-color: transparent;
+    border-color: rgba(33, 96, 43, 0.3);
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+.navbar.fixed-navbar .navbar-nav .nav-link {
+    color: #21602B;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar.fixed-navbar .navbar-nav .nav-link:hover {
+    color: #8BB729;
+    transform: translateY(-2px);
+}
+
+.navbar.fixed-navbar .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #8BB729;
+    position: relative;
+}
+
+.navbar.fixed-navbar .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #8BB729;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+/* Logo adjustments for fixed navbar */
+.navbar.fixed-navbar + .logo-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Small brand logo for fixed navbar */
+.navbar.fixed-navbar::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .navbar.fixed-navbar::before {
+        display: block;
+    }
+    
+}
+
+/* Enhanced active state for fixed navbar */
+.navbar.fixed-navbar .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #8BB729;
+    position: relative;
+    transform: scale(1.05);
+}
+
+.navbar.fixed-navbar .navbar-collapse {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Improved mobile styles for fixed navbar */
+@media (max-width: 767px) {
+    .navbar.fixed-navbar {
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+    
+    .navbar.fixed-navbar .navbar-collapse {
+        top: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .navbar.fixed-navbar .navbar-toggler {
+        margin-right: 0;
+    }
+    
+    .navbar.fixed-navbar .navbar-nav .nav-link {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(33, 96, 43, 0.1);
+    }
+    
+    .navbar.fixed-navbar .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Mobile navbar styles */
+@media (max-width: 767px) {
+    .navbar.fixed-navbar {
+        padding: 5px 0;
+    }
+    
+    .navbar.fixed-navbar .navbar-container {
+        border: none;
+        max-width: 100%;
+        padding: 5px 15px;
+    }
+    
+    .navbar.fixed-navbar .navbar-toggler {
+        border-color: #21602B;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .navbar.fixed-navbar .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 15px 15px;
+    }
 }
 
 .navbar-container {

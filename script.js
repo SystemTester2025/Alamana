@@ -16,18 +16,151 @@ $(document).ready(function() {
         }, 600); // Match this with the transition time in CSS
     }, 600); // Time to display preloader (same as our animation duration)
     
-    // Smooth scrolling for anchor links
-    $('a[href*="#"]').on('click', function(e) {
-        if (this.hash !== '') {
-            e.preventDefault();
+    // Handle fixed navbar on scroll with throttling for better performance
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('.navbar').outerHeight();
+    
+    $(window).scroll(function() {
+        didScroll = true;
+    });
+    
+    // Run hasScrolled() and update active links at max every 250ms
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            updateActiveNavLinks();
+            didScroll = false;
+        }
+    }, 250);
+    
+    function hasScrolled() {
+        var scrollTop = $(window).scrollTop();
+        
+        // Make sure they scroll more than delta
+        if(Math.abs(lastScrollTop - scrollTop) <= delta)
+            return;
+        
+        // Scroll position where navbar becomes fixed
+        var scrollTrigger = 100;
+        
+        // If the user scrolled down and past the navbar, add class .fixed-navbar
+        if (scrollTop > scrollTrigger) {
+            // Scroll Down
+            $('.navbar').addClass('fixed-navbar');
             
-            const hash = this.hash;
+            // If they scrolled down and past the threshold, hide the navbar
+            if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
+                // Scrolling Down - Hide navbar
+                $('.navbar.fixed-navbar').css('transform', 'translateY(-100%)');
+            } else {
+                // Scrolling Up - Show navbar
+                $('.navbar.fixed-navbar').css('transform', 'translateY(0)');
+            }
+        } else {
+            // At the top
+            $('.navbar').removeClass('fixed-navbar');
+            $('.navbar').css('transform', '');
+        }
+        
+        lastScrollTop = scrollTop;
+    }
+    
+    // Function to update active navigation links based on scroll position
+    function updateActiveNavLinks() {
+        var scrollPosition = $(window).scrollTop() + 200; // Adding offset for better detection
+        var currentSection = '';
+        
+        // Loop through each section with an ID
+        $('section[id]').each(function() {
+            var target = $(this);
+            var id = target.attr('id');
+            var targetTop = target.offset().top;
+            var targetHeight = target.outerHeight();
+            
+            // Check if the scroll position is within the section
+            if (scrollPosition >= targetTop && scrollPosition <= targetTop + targetHeight) {
+                currentSection = id;
+            }
+        });
+        
+        // Only update if we found a section
+        if (currentSection !== '') {
+            // Remove active class from all links
+            $('.navbar-nav .nav-link').removeClass('active');
+            
+            // Add active class to corresponding nav link
+            $('.navbar-nav .nav-link[href="#' + currentSection + '"]').addClass('active');
+        } else if (scrollPosition < $('#content').offset().top) {
+            // If at the top of the page, set home link as active
+            $('.navbar-nav .nav-link').removeClass('active');
+            $('.navbar-nav .nav-link:first').addClass('active');
+        }
+    }
+    
+    // Smooth scrolling for anchor links
+    $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').not('[data-bs-toggle]').click(function(event) {
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
+            location.hostname == this.hostname
+        ) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            
+            if (target.length) {
+                event.preventDefault();
+                
+                // Close mobile menu if open
+                if ($('.navbar-collapse').hasClass('show')) {
+                    $('.navbar-toggler').trigger('click');
+                }
+                
+                // Calculate offset based on navbar height
+                var navbarHeight = $('.navbar').outerHeight();
+                var offset = target.offset().top - navbarHeight - 20; // 20px extra padding
+                
+                // Highlight active nav item
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
             
             $('html, body').animate({
-                scrollTop: $(hash).offset().top
+                    scrollTop: offset
             }, 800, 'swing', function() {
-                window.location.hash = hash;
-            });
+                    // Add hash to URL after scrolling (optional)
+                    if (history.pushState) {
+                        history.pushState(null, null, target.selector);
+                    } else {
+                        location.hash = target.selector;
+                    }
+                });
+            }
+        }
+    });
+    
+    // Update active menu item on scroll
+    $(window).scroll(function() {
+        var scrollPosition = $(this).scrollTop();
+        
+        // Get navbar height for offset calculation
+        var navbarHeight = $('.navbar').outerHeight();
+        
+        // Check each section and update menu accordingly
+        $('section').each(function() {
+            var sectionTop = $(this).offset().top - navbarHeight - 100;
+            var sectionBottom = sectionTop + $(this).outerHeight();
+            var sectionId = $(this).attr('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                $('.navbar-nav .nav-link').removeClass('active');
+                $('.navbar-nav .nav-link[href="#' + sectionId + '"]').addClass('active');
+            }
+        });
+        
+        // Keep Home active when at the top
+        if (scrollPosition < 100) {
+            $('.navbar-nav .nav-link').removeClass('active');
+            $('.navbar-nav .nav-link:first').addClass('active');
         }
     });
     
@@ -312,4 +445,19 @@ $(document).ready(function() {
             }
         });
     }
+
+    // Initialize active nav state on page load
+    setTimeout(function() {
+        updateActiveNavLinks();
+    }, 1000);
+
+    // Add debounced resize handler to recalculate heights on window resize
+    var resizeTimeout;
+    $(window).on('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            navbarHeight = $('.navbar').outerHeight();
+            updateActiveNavLinks();
+        }, 250);
+    });
 });
