@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    // Preloader
+    setTimeout(function() {
+        $('.preloader').addClass('fade-out');
+        setTimeout(function() {
+            $('.preloader').hide();
+            $('body').css('overflow', 'visible'); // Ensure body scrolling is enabled
+        }, 600); // Match this with the transition time in CSS
+    }, 600); // Time to display preloader (same as our animation duration)
+    
     // Smooth scrolling for anchor links
     $('a[href*="#"]').on('click', function(e) {
         if (this.hash !== '') {

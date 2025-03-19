@@ -31,6 +31,157 @@
     font-display: swap;
 }
 
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s, visibility 0.6s;
+    background: linear-gradient(135deg, #21602B 0%, #8BB729 100%);
+}
+
+body:has(.preloader:not(.fade-out)) {
+    overflow: hidden;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.preloader-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    animation: preloader-rotate 2s ease-in-out infinite;
+}
+
+.preloader-text {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-in 1s ease forwards 0.2s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.preloader-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes preloader-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Remove the old SVG-specific animations since we're now using an image */
+.preloader-logo .logo-circle,
+.preloader-logo .logo-leaf,
+.preloader-logo .logo-text path {
+    animation: none;
+}
+
+/* Dummy empty animations to replace the original ones */
+@keyframes logo-circle-animation {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes logo-leaf-animation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes logo-text-animation {
+    0%, 100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.preloader-progress {
+    width: 200px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.preloader-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ffffff;
+    border-radius: 2px;
+    animation: progress-animation 2s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
 /* Main Styles */
 body {
     font-family: 'Almarai', Arial, sans-serif;
@@ -1446,7 +1597,7 @@ body {
 
 /* Media queries for image text responsiveness */
 @media (max-width: 1200px) {
-    .image-text {
+.image-text {
         font-size: 1.3rem;
         padding: 12px 16px;
         max-width: 90%;
@@ -1755,7 +1906,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 
 .accordion-body .value-description {
     color: #666;
-    font-size: 1rem;
+        font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -2017,7 +2168,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     font-weight: bold;
     padding: 5px 12px;
     border-radius: 25px 0 0 0;
-    font-size: 1rem;
+        font-size: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 2;
     display: flex;
@@ -2391,7 +2542,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
         position: static;
         flex-grow: 0;
         background-color: transparent;
-        border: none;
+    border: none;
         box-shadow: none;
         padding: 0;
         margin-top: 0;
@@ -2431,7 +2582,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
         font-weight: 500;
         display: inline-block;
         transition: color 0.3s ease;
-        background-color: transparent;
+    background-color: transparent;
     }
 
     .navbar-nav .nav-link:hover {
