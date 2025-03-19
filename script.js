@@ -5,6 +5,11 @@ $(document).ready(function() {
         setTimeout(function() {
             $('.preloader').hide();
             $('body').css('overflow', 'visible'); // Ensure body scrolling is enabled
+            // Reset animations for headings
+            $('.main-heading, .sub-heading').css('width', '0');
+            setTimeout(function() {
+                $('.main-heading, .sub-heading').css('width', '100%');
+            }, 100);
         }, 600); // Match this with the transition time in CSS
     }, 600); // Time to display preloader (same as our animation duration)
     

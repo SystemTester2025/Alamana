@@ -409,6 +409,7 @@ body {
     line-height: 1.2;
     margin: 0;
     text-align: center;
+    opacity: 0;
 }
 
 .main-heading {
@@ -429,8 +430,24 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-wave 8s linear infinite;
+    animation: typing 1s ease-in-out forwards, gradient-wave 8s linear infinite 1s;
     will-change: background-position;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #8BB729;
+    width: 0;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+        border-right: none;
+    }
 }
 
 @keyframes gradient-wave {
@@ -461,9 +478,25 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-wave-alt 8s linear infinite;
+    animation: typing-delayed 1s ease-in-out 1.2s forwards, gradient-wave-alt 8s linear infinite 2.2s;
     will-change: background-position;
     text-shadow: none;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #21602B;
+    width: 0;
+}
+
+@keyframes typing-delayed {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+        border-right: none;
+    }
 }
 
 @keyframes gradient-wave-alt {
