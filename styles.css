@@ -774,11 +774,23 @@ body {
 /* Scroll Down */
 .scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: -29px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     z-index: 2;
+}
+.scroll-down::before{
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    left: -318px;
+    bottom: -36px;
+    width: 700px;
+    height: 150px;
+    z-index: -1;
+    border-radius: 80px 80px 0 0;
+    background-repeat: no-repeat;
 }
 
 .scroll-down a {
@@ -790,17 +802,18 @@ body {
 }
 
 .scroll-circle {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(33, 96, 43, 0.8);
+    width: 70px;
+    height: 70px;
+    background-color: #E8F2D2;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #15371A;
     font-size: 20px;
     transition: all 0.3s ease;
     margin-bottom: 10px;
+    font-size: 35px;
 }
 
 .scroll-circle:hover {
