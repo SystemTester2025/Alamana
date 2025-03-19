@@ -2483,7 +2483,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     font-weight: bold;
     padding: 5px 12px;
     border-radius: 25px 0 0 0;
-    font-size: 1rem;
+        font-size: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 2;
     display: flex;
@@ -2682,7 +2682,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
 }
 
 .contact-title {
-    font-size: 1rem;
+        font-size: 1rem;
     font-weight: bold;
     margin-bottom: 25px;
     color: white;
@@ -3227,12 +3227,13 @@ button.section-heading-container[aria-expanded="true"] .section-heading {
     }
     
     .image-text {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         line-height: 1.5;
         padding: 8px 12px;
         width: 140px;
         min-height: 140px;
         left: 10px;
+        top: 42px;
     }
 }
 
