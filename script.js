@@ -10,6 +10,9 @@ $(document).ready(function() {
             setTimeout(function() {
                 $('.main-heading, .sub-heading').css('width', '100%');
             }, 100);
+
+            // Start falling leaves animation after preloader
+            createFallingLeaves();
         }, 600); // Match this with the transition time in CSS
     }, 600); // Time to display preloader (same as our animation duration)
     
@@ -203,4 +206,110 @@ $(document).ready(function() {
         const title = $(this).find('.product-label').text();
         openLightbox(imgSrc, title);
     });
+
+    // Falling Leaves Animation
+    function createFallingLeaves() {
+        const wrapper = $('.site-wrapper');
+        const wrapperWidth = wrapper.width();
+        const leafCount = 20; // Number of leaves
+        const leafColors = ['#21602B', '#8BB729', '#5A8F29', '#3D7A1F']; // Different green shades
+        const leafSizes = [15, 20, 25, 30]; // Different sizes in pixels
+        const leafImages = ['public/images/leafs/leaf1.svg', 'public/images/leafs/leaf2.svg', 'public/images/leafs/leaf3.svg',
+             'public/images/leafs/leaf4.svg'];
+        
+        // Create and position leaves
+        for (let i = 0; i < leafCount; i++) {
+            setTimeout(() => {
+                // Create random attributes for each leaf
+                const randomLeftPos = Math.floor(Math.random() * wrapperWidth);
+                const randomSize = leafSizes[Math.floor(Math.random() * leafSizes.length)];
+                const randomColor = leafColors[Math.floor(Math.random() * leafColors.length)];
+                const randomRotation = Math.floor(Math.random() * 360);
+                const randomDuration = 5 + Math.random() * 10; // Between 5-15 seconds
+                const randomDelay = Math.random() * 5; // Random delay up to 5 seconds
+                const animationName = `falling-leaf-${Math.floor(Math.random() * 3) + 1}`;
+                const randomImg = leafImages[Math.floor(Math.random() * leafImages.length)];
+                
+                // Create leaf element with img inside
+                const leaf = $('<div class="leaf"></div>');
+                const leafImg = $(`<img src="${randomImg}" alt="leaf">`);
+                leaf.append(leafImg);
+                
+                // Set styles for the leaf
+                leaf.css({
+                    left: randomLeftPos + 'px',
+                    width: randomSize + 'px',
+                    height: randomSize + 'px',
+                    filter: `drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3)) hue-rotate(${Math.random() * 40 - 20}deg)`,
+                    animation: `${animationName} ${randomDuration}s linear ${randomDelay}s infinite`,
+                    transform: `rotate(${randomRotation}deg)`
+                });
+                
+                // Add the leaf to the site wrapper
+                wrapper.append(leaf);
+                
+                // Animate the leaf falling
+                leaf.animate({
+                    top: wrapper.height() + 100 + 'px'
+                }, {
+                    duration: randomDuration * 1000,
+                    easing: 'linear',
+                    complete: function() {
+                        // Remove leaf after it falls out of view and create a new one
+                        $(this).remove();
+                        createNewLeaf();
+                    }
+                });
+            }, i * 300); // Stagger the creation of leaves
+        }
+    }
+    
+    // Create a single new leaf to replace one that fell out of view
+    function createNewLeaf() {
+        const wrapper = $('.site-wrapper');
+        const wrapperWidth = wrapper.width();
+        const leafColors = ['#21602B', '#8BB729', '#5A8F29', '#3D7A1F'];
+        const leafSizes = [15, 20, 25, 30];
+        const leafImages = ['public/images/leafs/leaf1.svg', 'public/images/leafs/leaf2.svg', 'public/images/leafs/leaf3.svg', 'public/images/leafs/leaf4.svg'];
+        
+        // Random attributes
+        const randomLeftPos = Math.floor(Math.random() * wrapperWidth);
+        const randomSize = leafSizes[Math.floor(Math.random() * leafSizes.length)];
+        const randomColor = leafColors[Math.floor(Math.random() * leafColors.length)];
+        const randomRotation = Math.floor(Math.random() * 360);
+        const randomDuration = 5 + Math.random() * 10;
+        const animationName = `falling-leaf-${Math.floor(Math.random() * 3) + 1}`;
+        const randomImg = leafImages[Math.floor(Math.random() * leafImages.length)];
+        
+        // Create leaf element with img inside
+        const leaf = $('<div class="leaf"></div>');
+        const leafImg = $(`<img src="${randomImg}" alt="leaf">`);
+        leaf.append(leafImg);
+        
+        // Set styles
+        leaf.css({
+            left: randomLeftPos + 'px',
+            width: randomSize + 'px',
+            height: randomSize + 'px',
+            top: '-50px',
+            filter: `drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3)) hue-rotate(${Math.random() * 40 - 20}deg)`,
+            animation: `${animationName} ${randomDuration}s linear infinite`,
+            transform: `rotate(${randomRotation}deg)`
+        });
+        
+        // Add to wrapper
+        wrapper.append(leaf);
+        
+        // Animate falling
+        leaf.animate({
+            top: wrapper.height() + 100 + 'px'
+        }, {
+            duration: randomDuration * 1000,
+            easing: 'linear',
+            complete: function() {
+                $(this).remove();
+                createNewLeaf();
+            }
+        });
+    }
 });

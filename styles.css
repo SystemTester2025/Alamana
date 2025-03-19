@@ -196,8 +196,8 @@ body {
     width: 95%;
     margin: 3% auto;
     overflow: hidden;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
     border-radius: 50px;
+    position: relative;
 }
 
 /* Hero Section */
@@ -3119,5 +3119,96 @@ button.section-heading-container[aria-expanded="true"] .section-heading {
 /* Make product items clickable */
 .product-item {
     cursor: pointer;
+}
+
+/* Falling Leaves Animation */
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    top: -50px;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.leaf img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.site-wrapper {
+    width: 95%;
+    margin: 3% auto;
+    overflow: hidden;
+    border-radius: 50px;
+    position: relative;
+}
+
+@keyframes falling-leaf-1 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(0.6);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateX(100px) rotate(90deg) scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(50px) rotate(180deg) scale(0.7);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateX(150px) rotate(270deg) scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(70px) rotate(360deg) scale(0.7);
+        opacity: 0.5;
+    }
+}
+
+@keyframes falling-leaf-2 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(0.8);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(-100px) rotate(-90deg) scale(0.7);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-50px) rotate(-180deg) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateX(-150px) rotate(-270deg) scale(0.6);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(-70px) rotate(-360deg) scale(0.8);
+        opacity: 0.6;
+    }
+}
+
+@keyframes falling-leaf-3 {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(0.7);
+        opacity: 0.7;
+    }
+    33% {
+        transform: translateX(80px) rotate(120deg) scale(0.9);
+        opacity: 0.9;
+    }
+    66% {
+        transform: translateX(-80px) rotate(240deg) scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(0) rotate(360deg) scale(0.7);
+        opacity: 0.7;
+    }
 }
 
