@@ -132,4 +132,61 @@ $(document).ready(function() {
     
     // Start the animation
     pulseAnimation();
+    
+    // Product Lightbox Functionality
+    function createLightbox() {
+        // Create lightbox elements if they don't exist
+        if ($('.product-lightbox').length === 0) {
+            $('body').append(`
+                <div class="product-lightbox">
+                    <div class="lightbox-content">
+                        <img src="" alt="" class="lightbox-image">
+                        <div class="lightbox-title"></div>
+                    </div>
+                    <div class="lightbox-close"></div>
+                </div>
+            `);
+            
+            // Handle closing the lightbox
+            $('.lightbox-close').on('click', function() {
+                closeLightbox();
+            });
+            
+            // Close lightbox when clicking on the background
+            $('.product-lightbox').on('click', function(e) {
+                if ($(e.target).hasClass('product-lightbox')) {
+                    closeLightbox();
+                }
+            });
+            
+            // Close lightbox on ESC key
+            $(document).keydown(function(e) {
+                if (e.keyCode === 27) { // ESC key
+                    closeLightbox();
+                }
+            });
+        }
+    }
+    
+    function openLightbox(imgSrc, title) {
+        $('.lightbox-image').attr('src', imgSrc);
+        $('.lightbox-title').text(title);
+        $('.product-lightbox').addClass('active');
+        $('body').css('overflow', 'hidden'); // Prevent scrolling when lightbox is open
+    }
+    
+    function closeLightbox() {
+        $('.product-lightbox').removeClass('active');
+        $('body').css('overflow', ''); // Restore scrolling
+    }
+    
+    // Initialize lightbox
+    createLightbox();
+    
+    // Handle product item clicks
+    $(document).on('click', '.product-item', function() {
+        const imgSrc = $(this).find('.product-image').attr('src');
+        const title = $(this).find('.product-label').text();
+        openLightbox(imgSrc, title);
+    });
 });

@@ -1948,6 +1948,30 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     max-height: 430px;
     max-width: 430px;
     margin: 20px 0;
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.product-item:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                0 15px 12px rgba(0, 0, 0, 0.08),
+                0 0 10px rgba(139, 183, 41, 0.2);
 }
 
 .product-image {
@@ -1958,6 +1982,25 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     top: 0;
     left: 0;
     z-index: 1;
+    transition: transform 0.4s ease;
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.product-item:hover .product-image {
+    animation-play-state: paused;
+    transform: scale(1.08);
 }
 
 .product-label {
@@ -1980,6 +2023,26 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 2px 8px rgba(139, 183, 41, 0.25);
+    }
+    100% {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.product-item:hover .product-label {
+    animation-play-state: paused;
+    color: #8BB729;
+    box-shadow: 0 2px 10px rgba(139, 183, 41, 0.4);
 }
 
 .product-label::after {
@@ -2720,5 +2783,109 @@ button.section-heading-container[aria-expanded="true"] .section-heading {
         min-height: 140px;
         left: 10px;
     }
+}
+
+/* Lightbox for Product Images */
+.product-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.product-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80vh;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.product-lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+    background-color: #f5f5f5;
+}
+
+.lightbox-close::before,
+.lightbox-close::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #21602B;
+}
+
+.lightbox-close::before {
+    transform: rotate(45deg);
+}
+
+.lightbox-close::after {
+    transform: rotate(-45deg);
+}
+
+.lightbox-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #21602B;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Make product items clickable */
+.product-item {
+    cursor: pointer;
 }
 
