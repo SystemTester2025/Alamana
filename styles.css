@@ -1186,7 +1186,7 @@ body {
     /* Move logo to top left on mobile */
     .top-right-logo {
         top: 30px;
-        left: 30px;
+        left: -102px;
         right: auto;
         max-width: 80px;
     }
@@ -1199,6 +1199,14 @@ body {
     .hero-content {
         padding-top: 90px;
     }
+    .logo-curved-bg::after{
+        display: none;
+    }
+    .logo-curved-bg::before{
+        display: none;
+    }
+        
+
 }
 
 /* Extra small screens */
@@ -1409,13 +1417,47 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.feature-icon-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #21602B;
+    z-index: 1;
+    transform: scale(1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature-item:hover .feature-icon-container::before {
+    background-color: #E8F2D2;
+    transform: scale(1.1);
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
+    filter: brightness(0);
+    z-index: 2;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.1);
 }
 
 .feature-title {
@@ -2303,6 +2345,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
         position: relative;
         height: auto; 
         min-height: 400px;
+        /* max-height: 400px; */
         margin-bottom: 30px;
     }
     
@@ -2374,6 +2417,7 @@ button.section-heading-container[aria-expanded="true"] .arrow-icon svg {
         width: 140px;
         min-height: 140px;
         left: 10px;
+        top: 42px;
     }
 }
 
