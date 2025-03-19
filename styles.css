@@ -248,14 +248,12 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 249px;
-    height: 226px;
+    width: 260px;
+    height: 250px;
     background-color: white;
     border-radius: 0 0 0 100px;
     z-index: 10;
     transform: none;
-    align-content: center;
-    /* align-items: flex-start;
 }
 
 /* Top Right Logo */
