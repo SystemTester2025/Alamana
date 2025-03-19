@@ -414,17 +414,65 @@ body {
 .main-heading {
     font-weight: 100px;
     font-size: 5rem;
-    color: #21602B;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+        90deg,
+        #21602B 0%,
+        #8BB729 25%,
+        #21602B 50%,
+        #8BB729 75%,
+        #21602B 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-wave 8s linear infinite;
+    will-change: background-position;
+}
+
+@keyframes gradient-wave {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .sub-heading {
     font-size: 4rem;
-    color: #8BB729;
+    position: relative;
     padding-top: 35px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #8BB729 0%,
+        #21602B 25%,
+        #8BB729 50%,
+        #21602B 75%,
+        #8BB729 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-wave-alt 8s linear infinite;
+    will-change: background-position;
+    text-shadow: none;
+}
+
+@keyframes gradient-wave-alt {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .hero-description {
