@@ -43,45 +43,46 @@ $(document).ready(function() {
         $('.navbar').addClass('navbar-scrolled');
     }
     
-    // Mobile menu toggle - only for tablet and mobile (below 768px)
-    $('.navbar-toggler').on('click', function() {
-        $('.navbar-collapse').toggleClass('show');
-        
-        if ($('.navbar-collapse').hasClass('show')) {
-            $('.navbar-container').addClass('mobile-expanded');
-        } else {
-            $('.navbar-container').removeClass('mobile-expanded');
-        }
-    });
-    
-    // Close mobile menu when clicking outside
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.navbar-container').length && 
-            $('.navbar-collapse').hasClass('show') && 
-            !$(e.target).closest('.navbar-toggler').length) {
-            $('.navbar-toggler').click();
-        }
-    });
-    
-    // Check for browser width changes to handle menu state
-    function handleResponsiveMenu() {
-        // Ensure menu is visible on desktop/larger screens
-        if ($(window).width() >= 768) {
-            // If screen is large enough to show normal menu, ensure collapse is visible
-            if (!$('.navbar-collapse').hasClass('show') && !$('.navbar-collapse').is(':visible')) {
-                $('.navbar-collapse').addClass('show');
-            }
-        } else {
-            // On mobile, if menu is open, keep it open; if closed, keep it closed
-            if (!$('.navbar-toggler').is(':visible')) {
-                $('.navbar-collapse').removeClass('show');
-                $('.navbar-container').removeClass('mobile-expanded');
-            }
-        }
+    // Add close button to mobile navbar if it doesn't exist
+    if ($('.navbar-close').length === 0) {
+        $('.navbar-collapse').prepend('<div class="navbar-close"></div>');
     }
     
-    // Run on resize and on page load
-    $(window).on('resize', handleResponsiveMenu);
+    // Modified mobile navbar handling
+    $('.navbar-toggler').on('click', function() {
+        // Hide navbar-toggler when menu is opened
+        if (!$('.navbar-collapse').hasClass('show')) {
+            $(this).fadeOut(300);
+        }
+    });
+    
+    // Handle close button inside the menu
+    $(document).on('click', '.navbar-close', function() {
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-toggler').trigger('click');
+            // Show navbar-toggler when menu is closed
+            setTimeout(function() {
+                $('.navbar-toggler').fadeIn(300);
+            }, 300);
+        }
+    });
+    
+    // Close menu when clicking on a menu item only
+    $(document).on('click', '.navbar-nav .nav-link', function() {
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-toggler').trigger('click');
+            // Show navbar-toggler when menu is closed
+            setTimeout(function() {
+                $('.navbar-toggler').fadeIn(300);
+            }, 300);
+        }
+    });
+    
+    // Bootstrap event for when collapse is hidden
+    $('.navbar-collapse').on('hidden.bs.collapse', function () {
+        // Show navbar-toggler when menu is closed
+        $('.navbar-toggler').fadeIn(300);
+    });
     
     // Animated counting for product counter
     const counterAnimation = () => {
@@ -101,6 +102,7 @@ $(document).ready(function() {
     
     // Start counter animation when visible
     const isElementInViewport = (el) => {
+        if (!el.length) return false;
         const rect = el[0].getBoundingClientRect();
         return (
             rect.top >= 0 &&
@@ -111,7 +113,7 @@ $(document).ready(function() {
     };
     
     $(window).on('scroll', function() {
-        if (isElementInViewport($('.product-counter')) && !$('.product-counter').hasClass('counted')) {
+        if ($('.product-counter').length && isElementInViewport($('.product-counter')) && !$('.product-counter').hasClass('counted')) {
             $('.product-counter').addClass('counted');
             counterAnimation();
         }
@@ -130,11 +132,4 @@ $(document).ready(function() {
     
     // Start the animation
     pulseAnimation();
-    
-    // Add a small delay to ensure all elements are loaded
-    setTimeout(function() {
-        // Trigger scroll and resize to initialize elements
-        $(window).trigger('scroll');
-        handleResponsiveMenu();
-    }, 500);
 });
