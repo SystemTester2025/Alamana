@@ -784,9 +784,10 @@ body {
     content: '';
     background-color: #ffffff;
     position: absolute;
-    left: -318px;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -36px;
-    width: 700px;
+    width: 35vw;
     height: 150px;
     z-index: -1;
     border-radius: 80px 80px 0 0;
